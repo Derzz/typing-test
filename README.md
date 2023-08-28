@@ -26,7 +26,3 @@ $$
 
 
 This makes it fair so there is a clear difference in WPM when the user types the word 'house' and 'Honorificabilitudinitatibus'.
-
-
-
-# 
