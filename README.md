@@ -1,6 +1,6 @@
 # Typing Test
 
-
+Access the app here: https://derzz-typing-test.netlify.app/
 
 This is a simple typing test made with ReactJs, it determines the user's WPM based on how many characters are inputted after how long the user typed for. The quotes are chosen from various games such as Doom Eternal, Half Life, Fallout New Vegas, and Fallout 3. 
 
