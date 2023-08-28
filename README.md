@@ -1,6 +1,6 @@
 # Typing Test
 
-Access the Web Applications Here: https://main.dfwa4a2cx0bp6.amplifyapp.com/
+Access the App Here: https://main.dfwa4a2cx0bp6.amplifyapp.com/
 
 
 
