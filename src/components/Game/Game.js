@@ -16,7 +16,7 @@ class Game extends Component {
     }
 
 
-    // TODO Add Actual Phrases Here
+    // Phrases to be used in game
     /*
                 'You were never one of us. You were nothing but a usurper. A false idol. My eyes have been opened. Let me help you to see, Slayer.',
             'Against all the evil that Hell can conjure, all the wickedness that mankind can produce, we will send unto them, only you. Rip and tear, until it is done.',

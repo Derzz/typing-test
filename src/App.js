@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import React, {Component} from 'react';
-import state from 'react';
 import Game from './components/Game/Game';
 import Rules from './components/Rules/Rules';
 import End from './components/End/End'

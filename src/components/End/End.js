@@ -1,7 +1,6 @@
 import React from 'react'
 
 const End = (props) => {
-    // TODO Add time and WPM
 
     const playAgainBut = () =>{
         props.finished(false);
