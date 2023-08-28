@@ -22,7 +22,6 @@ $$
 \text{Gross WPM} = \frac{\frac{\text{Number of Characters User Typed}}{5}}{\text{Time in Minutes}}
 $$
 
-$$
 
 
 
