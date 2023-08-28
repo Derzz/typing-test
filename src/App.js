@@ -28,10 +28,20 @@ class App extends Component {
         this.setState({finished: value});
     }
 
+    setWPM = (value) =>{
+        this.setState({wpm: value});
+    }
+
+    setTimeTaken = (value) =>{
+        this.setState({timeTaken: value});
+    }
+
     render() {
         const {
             started,
-            finished
+            finished,
+            wpm,
+            timeTaken
         } = this.state;
 
         if (!started) {
@@ -42,12 +52,19 @@ class App extends Component {
 
         if(finished){
             return(
-                <End finished={this.setFinished}/>
+                <End
+                    wpm={wpm}
+                    timeTaken={timeTaken}
+                    finished={this.setFinished}/>
             )
         }
 
         return (
-            <Game finished={this.setFinished}/>
+            <Game
+                wpm={this.setWPM}
+                timeTaken={this.setTimeTaken}
+                finished={this.setFinished}
+            />
         )
     }
 }

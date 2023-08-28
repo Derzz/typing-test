@@ -9,9 +9,10 @@ const End = (props) => {
 
     return (
         <div className="container">
-            <h1> <strong>Finished! </strong></h1>
+            <h1> <strong>Congratulations!! </strong></h1>
             <p>
-                You have finished the game!
+                You took {props.timeTaken} seconds to finish typing this phrase. <br/>
+                Your WPM is {props.wpm}! (⁀ᗢ⁀)
             </p>
             <button type='button' onClick={playAgainBut}> Play Again </button>
         </div>
