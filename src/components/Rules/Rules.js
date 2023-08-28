@@ -13,6 +13,7 @@ const Rules = (props) => {
                 Type in the text box for the highlighted words. The cursor will not progress if you mistype.<br/>
                 Correct words will be highlighted in green.<br/>
                 Incorrect words will be highlighted in red.<br/>
+                WPM will update as you finish each word, WPM is based on the number of characters in each word.
             </p>
             <button type="button" onClick={startBut} >Let's Start!</button>
         </div>

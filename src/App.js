@@ -4,13 +4,16 @@ import React, {Component} from 'react';
 import state from 'react';
 import Game from './components/Game/Game';
 import Rules from './components/Rules/Rules';
+import End from './components/End/End'
 
 
 
 class App extends Component {
     state = {
         started: false,
-        finished: false
+        finished: false,
+        wpm: 0,
+        timeTaken: 0
     };
 
     constructor(props) {
@@ -20,9 +23,15 @@ class App extends Component {
     setStarted= (value) =>{
         this.setState({started: value});
     }
+
+    setFinished = (value) =>{
+        this.setState({finished: value});
+    }
+
     render() {
         const {
-            started
+            started,
+            finished
         } = this.state;
 
         if (!started) {
@@ -31,8 +40,14 @@ class App extends Component {
             )
         }
 
+        if(finished){
+            return(
+                <End finished={this.setFinished}/>
+            )
+        }
+
         return (
-            <Game/>
+            <Game finished={this.setFinished}/>
         )
     }
 }
