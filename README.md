@@ -1,8 +1,6 @@
 # Typing Test
 
-Access the Web Applications Here: https://main.dfwa4a2cx0bp6.amplifyapp.com/
-
-
+Access the app here: https://derzz-typing-test.netlify.app/
 
 This is a simple typing test made with ReactJs, it determines the user's WPM based on how many characters are inputted after how long the user typed for. The quotes are chosen from various games such as Doom Eternal, Half Life, Fallout New Vegas, and Fallout 3. 
 
@@ -22,12 +20,7 @@ $$
 \text{Gross WPM} = \frac{\frac{\text{Number of Characters User Typed}}{5}}{\text{Time in Minutes}}
 $$
 
-$$
 
 
 
 This makes it fair so there is a clear difference in WPM when the user types the word 'house' and 'Honorificabilitudinitatibus'.
-
-
-
-# 
