@@ -17,27 +17,34 @@ class Game extends Component {
 
 
     // Phrases to be used in game
-    /*
-                'You were never one of us. You were nothing but a usurper. A false idol. My eyes have been opened. Let me help you to see, Slayer.',
-            'Against all the evil that Hell can conjure, all the wickedness that mankind can produce, we will send unto them, only you. Rip and tear, until it is done.',
-            'Gordon Freeman, in the flesh – or, rather, in the hazard suit. I took the liberty of relieving you of your weapons. Most of them were government property. As for the suit... I think you\'ve earned it.',
-            'This is Mr. New Vegas, and I feel something magic in the air tonight, and I\'m not just talking about the gamma radiation.',
-            'C is for Charisma, it\'s why people think I\'m great! I make my friends all laugh and smile, and never want to hate!',
-     */
 
     setText = () => {
         const phrases = [
-            'You were never one of us. You were nothing but a usurper. A false idol. My eyes have been opened. Let me help you to see, Slayer.',
-            'Against all the evil that Hell can conjure, all the wickedness that mankind can produce, we will send unto them, only you. Rip and tear, until it is done.',
-            'Gordon Freeman, in the flesh, or, rather, in the hazard suit. I took the liberty of relieving you of your weapons. Most of them were government property. As for the suit, I think you\'ve earned it.',
-            'This is Mr. New Vegas, and I feel something magic in the air tonight, and I\'m not just talking about the gamma radiation.',
-            'C is for Charisma, it\'s why people think I\'m great! I make my friends all laugh and smile, and never want to hate!',
+            {quote: 'You were never one of us. You were nothing but a usurper. A false idol. My eyes have been opened. Let me help you to see, Slayer.', location: 'Doom Eternal'},
+            {quote: 'Against all the evil that Hell can conjure, all the wickedness that mankind can produce, we will send unto them, only you. Rip and tear, until it is done.', location: 'Doom Eternal'},
+            {quote:  'Gordon Freeman, in the flesh – or, rather, in the hazard suit. I took the liberty of relieving you of your weapons. Most of them were government property. As for the suit... I think you\'ve earned it.', location: 'Half-Life'},
+            {quote: 'This is Mr. New Vegas, and I feel something magic in the air tonight, and I\'m not just talking about the gamma radiation.', location: 'Fallout: New Vegas'},
+            {quote: 'C is for Charisma, it\'s why people think I\'m great! I make my friends all laugh and smile, and never want to hate!', location: 'Fallout 3'},
+            {quote: 'Do you know the biggest lesson I learned from what you did? I discovered I have a sort of black-box quick-save feature. In the event of a catastrophic failure, the last two minutes of my life are preserved for analysis. I was able – well, forced, really – to relive you killing me. Again and again. Forever. You know, if you had done that to someone else, they might devote their existence to exactly revenge.', location: 'Portal 2'},
+            {quote: 'It\'s time to kick ass and chew bubble gum…and I\'m all outta gum.', location: 'Duke Nukem 3D'},
+            {quote: 'Some trees flourish, others die. Some cattle grow strong, others are taken by wolves. Some men are born rich enough and dumb enough to enjoy their lives. Ain\'t nothing fair.', location: 'Red Dead Redemption'},
+            {quote: 'It\'s dangerous to go alone, take this!', location: 'The Legend of Zelda'},
+            {quote: 'Operator! Give me the number for 911!', location: 'The Simpsons'},
+            {quote: 'Here\'s to alcohol: the cause of, and solution to, all of life\'s problems.', location: 'The Simpsons'},
+            {quote: 'Being a liar does seem pretty rough. I\'ll try to stop.', location: 'Spy x Family'},
+            {quote: 'Right and wrong are not what separate us and our enemies. It\'s our different standpoints, our perspectives that separate us. Both sides blame one another. There\'s no good or bad side. Just two sides holding different views.', location: 'Final Fantasy VII'},
+            {quote: 'The cake is a lie.', location: 'Portal'},
+            {quote: 'If at first you don\'t succeed... give up.', location: 'The Simpsons'},
+            {quote: 'Beets. Bears. Battlestar Galactica.', location: 'The Office(U.S.)'},
+
         ]
         const phrase = phrases[Math.floor(Math.random() * phrases.length)];
-        const words = phrase.split(" ");
+        const quote = phrase.quote;
+        const words = quote.split(" ");
+        this.props.quoteLocation(phrase.location);
 
         this.setState({
-            text: phrase,
+            text: quote,
             words: words,
             completedWords: [],
             time: 0,
@@ -53,10 +60,15 @@ class Game extends Component {
         const lastLetter = inputValue[inputValue.length - 1];
 
         const currentWord = words[0];
+        console.log(`currentWord is ${currentWord}`);
 
-        if (lastLetter === ' ' || lastLetter === '.' || lastLetter === '?' || lastLetter === '!') {
+
+        if (lastLetter === ' ') {
             console.log('First if statement passed!')
             let newCompletedWords = []
+
+            console.log(`currentWord is ${currentWord}`);
+            console.log(`inputValue is ${inputValue}`);
 
             if (inputValue.trim() === currentWord) {
                 if (words.length === 1) {
@@ -80,7 +92,6 @@ class Game extends Component {
 
                 }
 
-                // Add WPM on character length of word
 
                 let charLength = 0;
 
@@ -105,10 +116,24 @@ class Game extends Component {
                 })
 
             }
+
+            else{
+                this.setState({
+                    inputValue: inputValue,
+                })
+            }
+
         } else {
             this.setState({
                 inputValue: inputValue,
             });
+
+            // Last word left, just finish the game(Case only used when the last word has no punctuation)
+            if(words.length === 1 && inputValue.trim() === currentWord){
+                this.props.wpm(wpm);
+                this.props.timeTaken(time);
+                this.props.finished(true);
+            }
         }
     }
 

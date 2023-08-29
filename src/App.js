@@ -4,6 +4,8 @@ import Game from './components/Game/Game';
 import Rules from './components/Rules/Rules';
 import End from './components/End/End'
 
+// TODO Add feature to store objects of what the location of the phrases came from
+// TODO Allow user to add their own phrases
 
 
 class App extends Component {
@@ -11,6 +13,7 @@ class App extends Component {
         started: false,
         finished: false,
         wpm: 0,
+        quoteLocation: '',
         timeTaken: 0
     };
 
@@ -34,12 +37,16 @@ class App extends Component {
         this.setState({timeTaken: value});
     }
 
+    setQuoteLocation = (value) =>{
+        this.setState({quoteLocation: value});
+    }
+
     render() {
         const {
             started,
             finished,
             wpm,
-            timeTaken
+            timeTaken,
         } = this.state;
 
         if (!started) {
@@ -53,7 +60,8 @@ class App extends Component {
                 <End
                     wpm={wpm}
                     timeTaken={timeTaken}
-                    finished={this.setFinished}/>
+                    finished={this.setFinished}
+                    quoteLocation={this.state.quoteLocation}/>
             )
         }
 
@@ -62,6 +70,7 @@ class App extends Component {
                 wpm={this.setWPM}
                 timeTaken={this.setTimeTaken}
                 finished={this.setFinished}
+                quoteLocation={this.setQuoteLocation}
             />
         )
     }
