@@ -16,12 +16,20 @@ code {
     monospace;
 }
 
+#custom{
+  margin-left: 10px;
+}
+
 button {
   border: 0;
   background-color: #03c2fc;
   color: #000;
   font-size: 16px;
   padding: 12px 15px;
+}
+
+button:hover {
+  background-color: limegreen;
 }
 
 .green{
@@ -41,6 +49,11 @@ button {
   top: 0px;
   right: 10px;
   position:fixed;
+}
+
+progress{
+  width: 100%;
+  accent-color: #03c2fc;
 }
 
 body{

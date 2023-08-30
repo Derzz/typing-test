@@ -3,7 +3,7 @@ import '../../index.css';
 const Rules = (props) => {
 
     const startBut = () =>{
-        props.started(true);
+        props.setStarted(true);
     }
 
     return (
@@ -14,8 +14,14 @@ const Rules = (props) => {
                 Correct words will be highlighted in green.<br/>
                 Incorrect words will be highlighted in red.<br/>
                 WPM will update as you finish each word, WPM is based on the number of characters in each word.
+                To insert your own phrases, click the "Custom Phrases" button.
             </p>
-            <button type="button" onClick={startBut} >Let's Start!</button>
+            <div>
+                <button type="button" onClick={startBut} >Let's Start!</button>
+                <button id='custom' type={'button'} onClick={() => props.setCustomCheck(true)}>
+                    Custom Phrases
+                </button>
+            </div>
         </div>
     )
 }

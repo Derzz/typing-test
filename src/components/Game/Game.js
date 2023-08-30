@@ -17,12 +17,15 @@ class Game extends Component {
 
 
     // Phrases to be used in game
+    /*
+
+     */
 
     setText = () => {
         const phrases = [
             {quote: 'You were never one of us. You were nothing but a usurper. A false idol. My eyes have been opened. Let me help you to see, Slayer.', location: 'Doom Eternal'},
             {quote: 'Against all the evil that Hell can conjure, all the wickedness that mankind can produce, we will send unto them, only you. Rip and tear, until it is done.', location: 'Doom Eternal'},
-            {quote:  'Gordon Freeman, in the flesh – or, rather, in the hazard suit. I took the liberty of relieving you of your weapons. Most of them were government property. As for the suit... I think you\'ve earned it.', location: 'Half-Life'},
+            {quote:  'Gordon Freeman, in the flesh - or, rather, in the hazard suit. I took the liberty of relieving you of your weapons. Most of them were government property. As for the suit... I think you\'ve earned it.', location: 'Half-Life'},
             {quote: 'This is Mr. New Vegas, and I feel something magic in the air tonight, and I\'m not just talking about the gamma radiation.', location: 'Fallout: New Vegas'},
             {quote: 'C is for Charisma, it\'s why people think I\'m great! I make my friends all laugh and smile, and never want to hate!', location: 'Fallout 3'},
             {quote: 'Do you know the biggest lesson I learned from what you did? I discovered I have a sort of black-box quick-save feature. In the event of a catastrophic failure, the last two minutes of my life are preserved for analysis. I was able – well, forced, really – to relive you killing me. Again and again. Forever. You know, if you had done that to someone else, they might devote their existence to exactly revenge.', location: 'Portal 2'},
@@ -38,10 +41,18 @@ class Game extends Component {
             {quote: 'Beets. Bears. Battlestar Galactica.', location: 'The Office(U.S.)'},
 
         ]
-        const phrase = phrases[Math.floor(Math.random() * phrases.length)];
-        const quote = phrase.quote;
+
+        let quote
+        if(this.props.customVal.name !== ''){
+            quote = this.props.customVal.name
+            this.props.setQuoteLocation(this.props.customVal.origin);
+        }
+        else{
+            const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+            this.props.setQuoteLocation(phrase.location);
+            quote = phrase.quote;
+        }
         const words = quote.split(" ");
-        this.props.quoteLocation(phrase.location);
 
         this.setState({
             text: quote,
@@ -73,9 +84,9 @@ class Game extends Component {
             if (inputValue.trim() === currentWord) {
                 if (words.length === 1) {
                     console.log('finished!');
-                    this.props.wpm(wpm);
-                    this.props.timeTaken(time);
-                    this.props.finished(true);
+                    this.props.setWPM(wpm);
+                    this.props.setTimeTaken(time);
+                    this.props.setFinished(true);
                 } else {
                     console.log('Second if statement passed!')
                     const newWords = words.slice(1);
@@ -130,9 +141,9 @@ class Game extends Component {
 
             // Last word left, just finish the game(Case only used when the last word has no punctuation)
             if(words.length === 1 && inputValue.trim() === currentWord){
-                this.props.wpm(wpm);
-                this.props.timeTaken(time);
-                this.props.finished(true);
+                this.props.setWPM(wpm);
+                this.props.setTimeTaken(time);
+                this.props.setFinished(true);
             }
         }
     }
@@ -141,8 +152,6 @@ class Game extends Component {
     componentDidMount() {
         this.setText();
     }
-
-
 
     setTime = (elapsed) => {
         this.setState({time: elapsed})
@@ -168,6 +177,7 @@ class Game extends Component {
                 </div>
 
             <div className='container'>
+                    <progress value={completedWords.length / text.split(' ').length} variant="SOME_NAME"/>
                 <p className={'text'}>
                     {text.split(' ').map((word, wordIndex) => {
                         let highlight = false;
@@ -207,7 +217,6 @@ class Game extends Component {
                         )
                     })}
                 </p>
-
                 <input
                     type="text"
                     value={this.state.inputValue}
