@@ -29,7 +29,7 @@ class Game extends Component {
             {quote: 'This is Mr. New Vegas, and I feel something magic in the air tonight, and I\'m not just talking about the gamma radiation.', location: 'Fallout: New Vegas'},
             {quote: 'C is for Charisma, it\'s why people think I\'m great! I make my friends all laugh and smile, and never want to hate!', location: 'Fallout 3'},
             {quote: 'Do you know the biggest lesson I learned from what you did? I discovered I have a sort of black-box quick-save feature. In the event of a catastrophic failure, the last two minutes of my life are preserved for analysis. I was able – well, forced, really – to relive you killing me. Again and again. Forever. You know, if you had done that to someone else, they might devote their existence to exactly revenge.', location: 'Portal 2'},
-            {quote: 'It\'s time to kick ass and chew bubble gum…and I\'m all outta gum.', location: 'Duke Nukem 3D'},
+            {quote: 'It\'s time to kick ass and chew bubble gum... and I\'m all outta gum.', location: 'Duke Nukem 3D'},
             {quote: 'Some trees flourish, others die. Some cattle grow strong, others are taken by wolves. Some men are born rich enough and dumb enough to enjoy their lives. Ain\'t nothing fair.', location: 'Red Dead Redemption'},
             {quote: 'It\'s dangerous to go alone, take this!', location: 'The Legend of Zelda'},
             {quote: 'Operator! Give me the number for 911!', location: 'The Simpsons'},

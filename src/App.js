@@ -5,7 +5,7 @@ import Rules from './components/Rules/Rules';
 import End from './components/End/End'
 import Custom from './components/Custom/Custom'
 
-// TODO Allow user to add their own phrases
+// TODO Add custom ending quotes based on origin of quote
 
 
 class App extends Component {
