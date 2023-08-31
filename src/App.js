@@ -5,8 +5,6 @@ import Rules from './components/Rules/Rules';
 import End from './components/End/End'
 import Custom from './components/Custom/Custom'
 
-// TODO Add custom ending quotes based on origin of quote
-
 
 class App extends Component {
     state = {

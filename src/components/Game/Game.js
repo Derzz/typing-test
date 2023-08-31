@@ -16,10 +16,6 @@ class Game extends Component {
     }
 
 
-    // Phrases to be used in game
-    /*
-
-     */
 
     setText = () => {
         const phrases = [
@@ -43,14 +39,15 @@ class Game extends Component {
         ]
 
         let quote
+        let location
         if(this.props.customVal.name !== ''){
             quote = this.props.customVal.name
-            this.props.setQuoteLocation(this.props.customVal.origin);
+            location = this.props.customVal.origin
         }
         else{
             const phrase = phrases[Math.floor(Math.random() * phrases.length)];
-            this.props.setQuoteLocation(phrase.location);
-            quote = phrase.quote;
+            quote = phrase.quote
+            location = phrase.location
         }
         const words = quote.split(" ");
 
@@ -61,6 +58,8 @@ class Game extends Component {
             time: 0,
             charactersTypes: 0
         });
+
+        this.props.setCustomVal(quote, location)
     }
 
 
@@ -102,7 +101,6 @@ class Game extends Component {
 
 
                 }
-
 
                 let charLength = 0;
 
